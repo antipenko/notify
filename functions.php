@@ -344,7 +344,7 @@ add_action( 'wp_enqueue_scripts', 'foundation_scripts_and_styles' );
 
 /*********************** PUT YOU FUNCTIONS BELOW ********************************/
 
-// add_image_size( 'name', width, height, array('center','center'));
+add_image_size( 'slide', 50, 50, true);
 
 
 

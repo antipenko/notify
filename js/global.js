@@ -26,6 +26,10 @@
 				}
 			}
 		});
+		//add class for input on form
+		var $input = $(".ba-form-contact__button>input");
+		$input.addClass("button");
+		$input.val("Notify");
 
 	});
 
@@ -34,6 +38,7 @@
 	$(window).load(function () {
 
 		//jQuery code goes here
+		//$( "ba-form-contact__button" ).addClass( "button" );
 
 	});
 

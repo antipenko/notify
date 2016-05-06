@@ -16,7 +16,7 @@ function home_slider_template() { ?>
 				dots: true,
 				infinite: true,
 				speed: 500,
-				autoplay: true,
+				// autoplay: true,
 				autoplaySpeed: 3000,
 				slidesToShow: 1,
 				slidesToScroll: 1
@@ -36,15 +36,16 @@ function home_slider_template() { ?>
 
 		<div id="home-slider" class="slick-slider">
 			<?php while ( $slider->have_posts() ) : $slider->the_post();
-				$image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
+				//$image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
 			?>
 
-				<div class="slick-slide" style="background-image: url('<?php echo $image; ?>')">
-					<?php //the_post_thumbnail(); ?>
+				<!-- <div class="slick-slide" style="background-image: url('<?php// echo $image; ?>')"> -->
+				<div class="slick-slide" >
+
 					<div class="slider-caption">
-						<h3><?php the_title(); ?></h3>
 						<?php the_content(); ?>
 					</div>
+						<?php //the_post_thumbnail('slide'); ?>
 				</div>
 
 			<?php endwhile; ?>
@@ -53,7 +54,7 @@ function home_slider_template() { ?>
 	<?php endif; wp_reset_query(); ?>
 
 <?php }
-
+//картинки выводить в отдельном цикле и добавить data-orbit-*
 // HOME Slider Shortcode
 
 function home_slider_shortcode() {

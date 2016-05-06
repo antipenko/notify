@@ -157,7 +157,8 @@
     left: auto;
 }
 .slick-prev:before{
-    color:#fff;
+    // color:#fff;
+    color:red;
     font-size: 30px;
     font-family: FontAwesome;
     content:"\f053";
@@ -178,7 +179,8 @@
     left: 25px;
 }
 .slick-next:before{
-    color:#fff;
+    // color:#fff;
+    color:red;
     font-size: 30px;
     font-family: FontAwesome;
     content:"\f054";

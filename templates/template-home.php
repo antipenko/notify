@@ -4,17 +4,23 @@
  */
 get_header(); ?>
 
+<?php if ( have_posts() ) : ?>
+	<?php while ( have_posts() ) : the_post();
+	$image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
+	?>
+	<section class="ba-main " style="background-image: url('<?php echo $image; ?>'); background-size:cover">
 
-<section class="ba-main">
-	<?php if ( have_posts() ) : ?>
-		<?php while ( have_posts() ) : the_post();
-		$image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
-		?>
-		<div class="ba-notify text-left" style="background-image: url('<?php echo $image; ?>'); background-size:cover">
-			<a class="ba-logo"></a>
+		<div class="ba-notify text-left row" >
+			<a href="<?php bloginfo('url'); ?>" class="ba-logo"><img src="<?php echo get_header_image(); ?>" alt="<?php bloginfo('name'); ?>"/></a>
 			<?php the_content(); ?>
-			<a href=" <?php the_field('baner_button_link')?>" class="button  text-center">
-				<?php the_field('baner_button_text') ?>
+			<a href=" <?php the_field('download_ios')?>" class="button  text-center ba-button_ios">
+				<i class="fa fa-apple" aria-hidden="true"></i>
+			</a>
+			<a href=" <?php the_field('download_android')?>" class="button  text-center ba-button_ios">
+				<i class="fa fa-android" aria-hidden="true"></i>
+			</a>
+			<a href=" <?php the_field('download_windows')?>" class="button  text-center ba-button_ios">
+				<i class="fa fa-windows" aria-hidden="true"></i>
 			</a>
 		</div>
 	<?php endwhile; ?>
@@ -41,21 +47,37 @@ $serviceArgs = array(
 					<?php the_content();  ?>
 				</div>
 			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 		<?php endif;?>
 
 	</section>
 
-	<section class="ba-form row">
-		<div class="columns">
-			<div class="columns medium-6">
-
+	<section class="ba-form">
+		<div class="row">
+			<div class="columns medium-6 text-left">
+				<h3 class="ba-form_title">
+					<?php echo get_field('form_title'); ?>
+				</h3>
+				<p>
+					<?php the_field('form_text'); ?>
+				</p>
+				<?php echo do_shortcode( '[contact-form-7 id="29" title="notify-form"]' ); ?>
 			</div>
 			<div class="columns medium-6">
-
+				<div class="ba-video">
+					<?php the_field('form_video'); ?>
+				</div>
 			</div>
 		</div>
 	</section>
 
+<section class="ba-reviews">
+	<div class="row">
+		<div class="columns">
+			<?php echo home_slider_template(); ?>
+		</div>
+	</div>
+</section>
 	<div class="row">
 		<div class="columns">
 
